@@ -1,0 +1,170 @@
+练习：
+7、
+interface Inter
+{
+   void show(int a,int b);
+   void func(); 
+}
+
+class Demo
+{
+      public static void main(String[] args)
+	  {
+	      //补足代码，调用两个函数，要求用匿名内部类
+		  Inter in=new Inter() //多态，父类接口类型，指向 匿名 子类 对象
+		  {
+			  public void show(int a,int b)
+			  {}
+			  public void func()
+			  {}
+		  };
+		  in.show(3,4);
+		  in.func();
+	  }
+}
+
+
+9、
+选择题，写出错误答案，错误的原因，用单行注释的方式。
+class Demo
+{
+   int show(int a,int b){return 0;}
+}
+下面那些函数可以存在于Demo 的子类中。
+
+A、public int show(int a,int b){return 0;}// 可以，函数覆盖
+B、private int show(int a,int b){return 0;}//不可以，权限不够，覆盖不了
+C、private int show(int a,long b){return 0;}//可以，方法不同，子类特有方法
+D、public short show(int a,int b){return 0;}//不可以调用的，不确定性。
+E、static int show(int a,int b){return 0;}//不可以，静态只能覆盖静态
+
+14、写出程序结果
+class Super
+{
+    int  i=0;
+	public Super(String s)
+	{
+	    i=1;
+	}
+	
+}
+class Demo extends Super
+{
+       public Demo(String s)
+	   {
+	       //此处调用父类 ，空参数构造函数，而父类没有这个构造函数，所以，编译失败
+	       i=2;
+	   }
+	   public  static void main(String[] args)
+	   {
+	       Demo d=new Demo("yes");
+		   System.out.println(d.i);
+	   }
+}
+
+
+13、
+写出程序结果
+class Demo
+{
+      public  static void main(String[] args)
+	  {
+	     try
+		 {
+		   showExce();//此处不报异常，是因为，被封装，下面的一行语句可能被执行
+		   System.out.println("A");
+		 }
+		 catch(Exception e)
+		 {
+		    System.out.println("B");
+		 }
+		 finally
+		 {
+		      System.out.println("C");
+		 }
+		  System.out.println("D");
+	  }
+	  public static void showExce() throws Exception
+	  {
+	     throw new Exception();
+	  }
+}
+输出：B C D
+
+16、
+写出程序结果
+class Demo
+{
+      public  static void func()
+	  {
+	     try
+		 {
+		   throw new Exception();
+		   System.out.println("A");//该条语句无法执行，废话
+		 }
+		 catch(Exception e)
+		 {
+		    System.out.println("B");
+		 }
+	   }
+	   public static void main(String[] args)
+	   {
+	     try
+		 {
+		   func();
+		 }
+		 catch
+		 {
+		      System.out.println("C");
+		 }
+		  System.out.println("D");
+	  }	 
+}
+
+17、
+写出程序结果
+class Demo
+{
+      public   void func()
+	  {
+	    // 位置1写 new Inner(); 可以
+	  }
+      class Inner{}	  
+	   public static void main(String[] args)
+	   {
+	    Demo d=new Demo();
+        //位置2  new Inner()；//不可以。因为主函数是静态的，只能调用静态成员，所以，内部类也必须是static的。		
+	   }	 
+}
+A.在位置1写 new Inner(); 可以
+B.在位置2写 new Inner();  不可以
+C.在位置2写 d.new Inner();  // new new Demo().Inner();格式错误    正确格式 new Demo().new Inner();
+D.在位置2写 new Demo.Inner(); //格式正确，但是，Inner 必须是静态的
+
+
+19、
+interface Test
+{
+   void func();
+}
+class Demo
+{
+    	public static void main(String[] args)
+		{//补足代码，（匿名内部类）调用show 方法
+		 new Demo().show(new Test()
+			{
+			 public void func(){}//一定要写public
+			});
+		
+		}
+		void show(Test t)
+		{
+		t.func();
+		}
+}
+
+跳过21题 图形接口，求 圆形、矩形面积
+
+
+
+
