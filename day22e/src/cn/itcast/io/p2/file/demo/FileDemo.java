@@ -4,14 +4,9 @@ import java.io.File;
 
 public class FileDemo {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 
-//		constructorDemo();
-		
-		
+//		constructorDemo();		
 	}
 
 	public static void constructorDemo() {
@@ -27,10 +22,5 @@ public class FileDemo {
 		
 		File f4 = new File("c:"+File.separator+"abc"+File.separator+"a.txt");//【不同系统，名称分隔符不一样】
 		System.out.println(f4);
-		
-		
 	}
-	
-	
-
 }

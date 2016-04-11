@@ -32,7 +32,8 @@ public class CopyTextTest_2 {
 			int len = 0;
 			
 			while((len=fr.read(buf))!=-1){//【循环次数少，效率高】
-				fw.write(buf, 0, len);
+				fw.write(buf, 0, len);//buf - 要写入的字符缓冲区		0 - 偏移量，从该处开始读取字符		len - 要写入字符的数量 
+
 			}
 			
 		} catch (Exception e) {

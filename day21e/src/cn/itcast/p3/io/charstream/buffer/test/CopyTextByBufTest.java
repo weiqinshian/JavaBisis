@@ -25,13 +25,9 @@ public class CopyTextByBufTest {
 		String line = null;
 		while((line=bufr.readLine())!=null){
 			bufw.write(line);//【直接操作内存速度快】
-			bufw.newLine();
+			bufw.newLine();//【newLine 只有 BufferedWriter 对象有】
 			bufw.flush();
-		}
-		
-		
-		
-		
+		}		
 		/*
 		int ch = 0;
 		
@@ -43,5 +39,4 @@ public class CopyTextByBufTest {
 		bufw.close();
 		bufr.close();
 	}
-
 }
